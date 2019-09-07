@@ -74,6 +74,44 @@ namespace FasterThanLight.View.Auth
             }while(flag==false);
             
         }
+        public void Register()
+        {
+            string userName;
+            int flag = 0;
+            Console.Write("_ __                                          _ _ _             \n");
+            Console.Write("' )  )             _/_         _/_            ' ) ) )               \n");
+            Console.Write(" /--' _  _,  o _   /  __  __.  /  o __ ____    / / / _  ____  . .\n");
+            Console.Write("/  \\_</_(_)_<_/_)_<__/ (_(_/|_<__<_(_)/ / <_  / ' (_</_/ / <_(_/_\n");
+            Console.Write("         /|                                                      \n");
+            Console.Write("        |/                                                       \n\n\n\n\n\n\n\n\n\n");
+            do
+            {
+                flag = 0;
+                userName = "";
+                Console.Write("Insert your UserName [5-30 Characters or Enter \"Cancel\" to Cancel Registration]: ");
+                userName = Console.ReadLine();
+                if (userName.Trim().Length > 30 || userName.Trim().Length < 5)
+                {
+                    flag = 0;
+                }
+                else
+                {
+                    userName = userName.Trim();
+                    if (userName.Trim().ToLower() == "cancel")
+                    {
+                        Console.Write("Cancelling user creation...\nPress Enter to Continue...");
+                        return;
+                    }
+                    else
+                    {
+                        AuthController authController = new AuthController();
+                        bool isUserExist = authController.IsUserNameExist(userName.Trim());
+                        flag = 1;
+                    }
+                }
+            } while (flag == 0);
+
+        }
         public void MenuInput()
         {
             bool flag = false;

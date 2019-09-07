@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Legacy",
     "\\Legacy\\AlgoBifest",
-    "\\Legacy\\AlgoBifest\\AlgoBifest"
+    "\\Legacy\\AlgoBifest\\AlgoBifest",
+    "\\NewFTL",
+    "\\NewFTL\\FasterThanLight"
   ],
+  "SelectedNode": "\\NewFTL\\FasterThanLight\\FasterThanLight.sln",
   "PreviewInSolutionExplorer": false
 }

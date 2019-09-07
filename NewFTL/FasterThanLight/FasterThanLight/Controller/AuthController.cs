@@ -27,7 +27,7 @@ namespace FasterThanLight.Controller
                     break;
                 case 2:
                     result = true;
-
+                    auth.Register();
                     break;
                 case 3:
                     result = true;
@@ -44,6 +44,10 @@ namespace FasterThanLight.Controller
             Console.WriteLine(authModel.userName+" "+authModel.passWord);
             result = true;
             return result;
+        }
+        public bool IsUserNameExist(string UserName)
+        {
+            return true;
         }
     }
 }
