@@ -1,4 +1,5 @@
 ﻿using FasterThanLight.Model;
+using FasterThanLight.Service;
 using FasterThanLight.View.Auth;
 using System;
 using System.Collections.Generic;
@@ -47,6 +48,12 @@ namespace FasterThanLight.Controller
         }
         public bool IsUserNameExist(string UserName)
         {
+            IAuthDB authDB = new AuthDB();
+            AuthModel authModel = authDB.CheckUsernameAvailability(UserName);
+            if(authModel.userName=="")
+            {
+                return false;
+            }
             return true;
         }
     }

@@ -78,12 +78,14 @@ namespace FasterThanLight.View.Auth
         {
             string userName;
             int flag = 0;
+            Console.Clear();
             Console.Write("_ __                                          _ _ _             \n");
             Console.Write("' )  )             _/_         _/_            ' ) ) )               \n");
             Console.Write(" /--' _  _,  o _   /  __  __.  /  o __ ____    / / / _  ____  . .\n");
             Console.Write("/  \\_</_(_)_<_/_)_<__/ (_(_/|_<__<_(_)/ / <_  / ' (_</_/ / <_(_/_\n");
             Console.Write("         /|                                                      \n");
-            Console.Write("        |/                                                       \n\n\n\n\n\n\n\n\n\n");
+            Console.Write("        |/                                                       ");
+            DisplaySpacing();
             do
             {
                 flag = 0;
@@ -93,6 +95,7 @@ namespace FasterThanLight.View.Auth
                 if (userName.Trim().Length > 30 || userName.Trim().Length < 5)
                 {
                     flag = 0;
+                    Console.WriteLine("Please enter Username greater than 5 character and less than 30 character");
                 }
                 else
                 {
@@ -106,7 +109,14 @@ namespace FasterThanLight.View.Auth
                     {
                         AuthController authController = new AuthController();
                         bool isUserExist = authController.IsUserNameExist(userName.Trim());
-                        flag = 1;
+                        if(isUserExist == false)
+                        {
+                            flag = 1;
+                        }
+                        else
+                        {
+                            flag = 0;
+                        }
                     }
                 }
             } while (flag == 0);
